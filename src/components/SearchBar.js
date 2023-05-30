@@ -1,25 +1,27 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
-import { TextField, Button, Grid } from '@mui/material';
-import axios from 'axios';
+import React, { useState } from "react";
+import { TextField, Button, Grid } from "@mui/material";
+import axios from "axios";
 
-const SearchBar = ({onSearch}) => {
-  const [orgName, setOrgName] = useState('');
+const SearchBar = ({ onSearch }) => {
+  const [orgName, setOrgName] = useState("");
 
   const handleInputChange = (e) => {
     setOrgName(e.target.value);
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get(`https://api.github.com/orgs/${orgName}/repos`);
+      const response = await axios.get(
+        `https://api.github.com/orgs/${orgName}/repos`
+      );
       onSearch(response.data, orgName);
-      console.log(response)
+      console.log(response);
     } catch (err) {
       console.error(err);
     }
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit}>

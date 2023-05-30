@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SearchBar from "./components/SearchBar";
 import RepoList from "./components/ReproList";
 import CommitList from "./components/CommitList";
@@ -21,14 +21,13 @@ const App = () => {
         `https://api.github.com/repos/${orgName}/${repoName}/commits`
       );
       setCommits(response.data);
-      console.log(response.data);
     } catch (err) {
       console.error(err);
     }
   };
 
   return (
-    <Router>
+    <BrowserRouter>
       <SearchBar onSearch={handleSearch} />
       <Routes>
         <Route
@@ -37,10 +36,10 @@ const App = () => {
         />
         <Route
           path="/*"
-          element={ <RepoList repos={repos} onRepoClick={handleRepoClick} />}
+          element={<RepoList repos={repos} onRepoClick={handleRepoClick} />}
         />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 };
 
