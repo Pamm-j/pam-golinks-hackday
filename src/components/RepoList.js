@@ -1,7 +1,7 @@
 import React from "react";
 import { List, Divider } from "@mui/material";
 import PropTypes from "prop-types";
-import RepoListItem from "./ReproListItem";
+import RepoListItem from "./RepoListItem";
 import { Link } from "react-router-dom";
 
 const ReproList = ({ repos, onRepoClick }) => {

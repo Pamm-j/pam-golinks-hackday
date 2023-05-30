@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { TextField, Button, Grid } from "@mui/material";
 import axios from "axios";
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const SearchBar = ({ onSearch }) => {
   const [orgName, setOrgName] = useState("");
@@ -25,6 +26,7 @@ const SearchBar = ({ onSearch }) => {
   return (
     <form onSubmit={handleSubmit}>
       <Grid container spacing={1} alignItems="flex-end">
+        <GitHubIcon sx={{m:"5px 0"}}/>
         <Grid item xs={10}>
           <TextField
             id="orgName"

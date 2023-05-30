@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SearchBar from "./components/SearchBar";
-import RepoList from "./components/ReproList";
+import RepoList from "./components/RepoList";
 import CommitList from "./components/CommitList";
 import axios from "axios";
 
