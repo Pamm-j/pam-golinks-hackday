@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import React from "react";
 import { List, Divider } from "@mui/material";
+import PropTypes from "prop-types";
 import RepoListItem from "./ReproListItem";
 import { Link } from "react-router-dom";
 
@@ -25,4 +25,14 @@ const ReproList = ({ repos, onRepoClick }) => {
   );
 };
 
+ReproList.propTypes = {
+  repos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      stargazers_count: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  onRepoClick: PropTypes.func.isRequired,
+};
 export default ReproList;
