@@ -1,15 +1,34 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { ListItem, ListItemText } from '@mui/material';
+import React from "react";
+import PropTypes from "prop-types";
+import { List, ListItem, ListItemText } from "@mui/material";
 
 const CommitListItem = ({ commit }) => {
-  const { sha, commit: { message, committer } } = commit;
-  
+  const {
+    sha,
+    commit: { message, committer },
+  } = commit;
+
   return (
     <ListItem>
-      <ListItemText 
-        primary={message} 
-        secondary={`Commit Hash: ${sha} | Committer: ${committer.name} | Date: ${committer.date}`} 
+      <ListItemText
+        primary={message}
+        secondary={
+          <List>
+            <ListItem>
+              <ListItemText secondary={`Commit Hash: ${sha}`}></ListItemText>
+            </ListItem>
+            <ListItem>
+              <ListItemText
+                secondary={`Committer: ${committer.name}`}
+              ></ListItemText>
+            </ListItem>
+            <ListItem>
+              <ListItemText
+                secondary={`Date: ${committer.date}`}
+              ></ListItemText>
+            </ListItem>
+          </List>
+        }
       />
     </ListItem>
   );
