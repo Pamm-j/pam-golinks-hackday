@@ -17,7 +17,6 @@ const SearchBar = ({ onSearch }) => {
         `https://api.github.com/orgs/${orgName}/repos`
       );
       onSearch(response.data, orgName);
-      console.log(response);
     } catch (err) {
       console.error(err);
     }

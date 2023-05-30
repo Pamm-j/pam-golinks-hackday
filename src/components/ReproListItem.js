@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from "react";
+import PropTypes from "prop-types";
 import { List, ListItem, ListItemText } from "@mui/material";
 
 const RepoListItem = ({ repo, onRepoClick }) => {
@@ -39,6 +39,18 @@ const RepoListItem = ({ repo, onRepoClick }) => {
       />
     </ListItem>
   );
+};
+
+RepoListItem.propTypes = {
+  repo: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    stargazers_count: PropTypes.number.isRequired,
+    forks_count: PropTypes.number.isRequired,
+    language: PropTypes.string,
+    created_at: PropTypes.string.isRequired,
+    description: PropTypes.string,
+  }).isRequired,
+  onRepoClick: PropTypes.func.isRequired,
 };
 
 export default RepoListItem;
